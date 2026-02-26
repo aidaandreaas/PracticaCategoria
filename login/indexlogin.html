@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="stylelogin.css">
+    <script src="https://kit.fontawesome.com/389ea38299.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="login-header">
+    <img src="images/logo.png" class="login-logo" alt="Logo">
+</div>
+
+<div class="auth-container" id="container">
+
+    <!-- REGISTRO -->
+    <div class="form-container sign-up-container">
+        <form action="registro.php" method="POST" class="formulario" id="formulario">
+
+            <h1>Registrarse</h1>
+
+            <!-- Grupo: Usuario -->
+			<div class="formulario_grupo" id="grupo_usuario">
+				<label for="usuario" class="formulario_label">Usuario</label>
+				<div class="formulario_grupo-input">
+					<input type="text" class="formulario_input" name="usuario" id="usuario" placeholder="Ingrese su usuario">
+					<i class="formulario_validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario_input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			</div>
+
+<!-- Grupo: Nombre -->
+			<div class="formulario_grupo" id="grupo_nombre">
+				<label for="nombre" class="formulario_label">Nombre</label>
+				<div class="formulario_grupo-input">
+					<input type="text" class="formulario_input" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+					<i class="formulario_validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario_input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			</div>
+
+<!-- Grupo: Apellido -->
+			<div class="formulario_grupo" id="grupo_apellido">
+				<label for="apellido" class="formulario_label">Apellido</label>
+				<div class="formulario_grupo-input">
+					<input type="text" class="formulario_input" name="apellido" id="apellido" placeholder="Ingrese su apellido">
+					<i class="formulario_validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario_input-error">El Apellido tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			</div>
+			
+<!-- Grupo: Contraseña -->
+			<div class="formulario_grupo" id="grupo_password">
+				<label for="password" class="formulario_label">Contraseña</label>
+				<div class="formulario_grupo-input">
+					<input type="password" class="formulario_input" name="password" id="password">
+					<i class="formulario_validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario_input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+			</div>
+
+
+<!-- Grupo: Correo Electrónico -->
+			<div class="formulario_grupo" id="grupo_correo">
+				<label for="correo" class="formulario_label">Correo Electrónico</label>
+				<div class="formulario_grupo-input">
+					<input type="email" class="formulario_input" name="correo" id="correo" placeholder="Ingrese su correo">
+					<i class="formulario_validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario_input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+			</div>
+
+
+<!-- Grupo: Terminos y Condiciones -->
+<div class="formulario_grupo" id="grupo_terminos">
+	<label class="formulario_label">
+		<input class="formulario_checkbox" type="checkbox" name="terminos" id="terminos">
+		Acepto los Terminos y Condiciones
+	</label>
+</div>
+
+<div class="formulario_mensaje" id="formulario_mensaje">
+	<p>
+		<i class="fas fa-exclamation-triangle"></i> 
+		<b>Error:</b> Por favor rellena el formulario correctamente.
+	</p>
+</div>
+
+<div class="formulario_mensaje-exito" id="formulario_mensaje-exito">
+	<p>
+		<i class="fas fa-check-circle"></i> 
+		<b>Éxito:</b> Enviado correctamente.
+	</p>
+</div>
+
+<!-- Grupo: Enviar -->
+			<div class="formulario_grupo formulario_grupo-btn-enviar">
+				<button type="submit" class="formulario_btn">Registrarse</button>
+				<p class="formulario_mensaje-exito" id="formulario_mensaje-exito">Formulario enviado exitosamente!</p>
+			</div>
+
+
+        </form>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="form-container sign-in-container">
+        <form action="login.php" method="POST">
+            <h1>Iniciar Sesión</h1>
+
+            <input type="email" name="correo" placeholder="Email" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+
+            <button type="submit" class="login-btn">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <!-- OVERLAY NARANJA -->
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h2>¡Bienvenido de nuevo!</h2>
+                <p>Inicia sesión para continuar</p>
+                <button class="ghost" id="signIn">Iniciar Sesión</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h2>¿Nuevo aquí?</h2>
+                <p>Regístrate y comienza ahora</p>
+                <button class="ghost" id="signUp">Registrarse</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+ <script src="../js/validaciones.js"></script> 
+<script src="../js/formulario.js"></script> 
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        const exito = params.get('exito');
+
+        if (error === 'usuario') {
+            mostrarModal('error', 'El correo ingresado no está registrado.');
+        } else if (error === 'contrasena') {
+            mostrarModal('error', 'La contraseña es incorrecta.');
+        } else if (error === 'duplicado') {
+            mostrarModal('error', 'El correo o usuario ya está registrado.');
+        } else if (error === 'general') {
+            mostrarModal('error', 'Ocurrió un error al registrar. Intenta de nuevo.');
+        } else if (exito === 'registrado') {
+            mostrarModal('exito', '¡Usuario registrado correctamente!');
+        }
+    });
+
+    function mostrarModal(tipo, mensaje) {
+        document.getElementById('modalMensaje').textContent = mensaje;
+
+        const icono = document.getElementById('modalIcono');
+        const botonesSesion = document.getElementById('modalBotones');
+
+        if (tipo === 'exito') {
+            icono.className = 'fas fa-check-circle';
+            icono.style.color = '#2ecc71';
+            botonesSesion.style.display = 'flex';
+        } else {
+            icono.className = 'fas fa-exclamation-circle';
+            icono.style.color = '#e74c3c';
+            botonesSesion.style.display = 'none';
+        }
+
+        document.getElementById('modalOverlay').classList.add('modal-activo');
+    }
+
+    function cerrarModal() {
+        document.getElementById('modalOverlay').classList.remove('modal-activo');
+        history.replaceState(null, '', window.location.pathname);
+    }
+</script>
+<!-- modales -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-error">
+        <i id="modalIcono" class="fas fa-exclamation-circle"></i>
+        <h3 id="modalTitulo">Aviso</h3>
+        <p id="modalMensaje"></p>
+
+      
+        <div id="modalBotones" style="display:none; flex-direction:column; gap:10px; margin-bottom:15px;">
+            <a href="http://localhost/PracticaHogar/login/indexlogin.html" class="modal-btn-login">
+                Iniciar Sesión
+            </a>
+            <a href="http://localhost/PracticaHogar/index.html" class="modal-btn-inicio">
+                Volver al Inicio
+            </a>
+        </div>
+
+        <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>
+</body>
+</html>

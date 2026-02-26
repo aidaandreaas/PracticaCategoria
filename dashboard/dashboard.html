@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard| Orderly</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" href="../images/favicon.png">
+
+</head>
+<body>
+
+<div class="dashboard">
+
+ 
+    <aside class="sidebar">
+       <div class="sidebar-logo">
+    <a href="../index.html">
+        <img src="images/logo.png" alt="Logo">
+    </a>
+    <span class="logo-text">Ordery</span>
+</div>
+    <nav class="sidebar-menu">
+     <a id="menuUsuarios" class="active">
+        <i class="fa-solid fa-user"></i> Usuarios
+    </a>
+  <a id="menuRoles">
+        <i class="fa-solid fa-id-badge"></i> Roles
+    </a>
+    <a id="menuCategorias">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Categoría</span>
+    </a>
+    <a id="menuSubcategorias">
+        <i class="fa-solid fa-sitemap"></i>
+        <span>Subcategoría</span>
+    </a>
+    <a id="menuSubsubcategorias">
+        <i class="fa-solid fa-diagram-project"></i>
+        <span>Subsubcategoría</span>
+    </a>
+    <a id="menuProductos">
+        <i class="fa-solid fa-box"></i>
+        <span>Producto</span>
+    </a>
+</nav>
+
+
+  <div class="sidebar-footer">
+    <a class="logout" href="../index.html">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Salir</span>
+    </a>
+</div>
+
+   
+    </aside>
+
+    <main class="main">
+
+         <header class="topbar">
+   
+    <div class="search-container">
+        <input type="text" placeholder="Buscar..." id="barraBusqueda">
+        <button id="btnBuscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+ 
+    <div class="avatar-container">
+        <img src="images/miavatar.png" alt="Avatar" id="avatarTopbar">
+    </div>
+</header>
+<!-- seccion de usuarios -->
+
+        <section class="content" id="seccionUsuarios">
+
+            <button class="btn-primary" id="btnAbrirModal">
+                Agregar Usuario +
+            </button>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Avatar</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>ID Rol</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyUsuarios"></tbody>
+                
+
+            </table>
+
+        </section>
+
+  
+
+
+<div class="modal" id="modalUsuario">
+    <div class="modal-content">
+        <span class="modal-close" id="cerrarModal">&times;</span>
+
+
+        <h3 id="tituloModal">Agregar usuario</h3>
+
+
+        <form id="formUsuario">
+            <input type="hidden" id="editIndex">
+
+
+            <label>Nombre</label>
+            <input type="text" id="nombre" required>
+
+
+            <label>Email</label>
+            <input type="email" id="email" required>
+
+
+            <label>Contraseña</label>
+            <input type="password" id="password" required>
+
+
+            <label>ID Rol</label>
+            <input type="number" id="rol" required>
+
+
+            <label>Estado</label>
+            <select id="estado">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+
+
+            <label>Avatar</label>
+            <input type="file" id="avatar" accept="image/*">
+
+
+            <button type="submit" class="btn-primary">Agregar usuario</button>
+        </form>
+    </div>
+</div>
+ 
+<!--seccion  roles -->
+ 
+
+<section class="content" id="seccionRoles" style="display:none">
+    <button class="btn-primary" id="btnAbrirModalRol">Agregar Rol +</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyRoles"></tbody>
+    </table>
+</section>
+
+<div class="modal" id="modalRol">
+    <div class="modal-content">
+        <span class="modal-close" id="cerrarModalRol">&times;</span>
+
+        <h3>Agregar Rol</h3>
+
+        <form id="formRol">
+            <input type="hidden" id="editIndexRol">
+
+
+            <label>Nombre</label>
+            <input type="text" id="nombreRol" required>
+
+            <label>Estado</label>
+            <select id="estadoRol">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+
+           <button type="submit" class="btn-primary">
+    Agregar rol
+</button>
+
+
+
+        </form>
+    </div>
+   
+</div>
+
+  
+<!-- seccion categoria -->
+ 
+<section class="content" id="seccionCategorias" style="display:none">
+    <button class="btn-primary" id="btnAbrirModalCategoria">
+        Agregar Categoría +
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyCategorias"></tbody>
+    </table>
+</section>
+
+
+<div class="modal" id="modalCategoria">
+    <div class="modal-content">
+        <span class="modal-close" id="cerrarModalCategoria">&times;</span>
+
+        <h3>Agregar Categoría</h3>
+
+        <form id="formCategoria">
+            <input type="hidden" id="editIndexCategoria">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreCategoria" required>
+
+            <label>Estado</label>
+            <select id="estadoCategoria">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+            
+            <label>Imagen</label>
+            <input type="file" id="imagenCategoria" accept="image/*">
+
+
+            <button type="submit" class="btn-primary">
+                Agregar categoría
+            </button>
+        </form>
+    </div>
+</div>
+
+  
+<!--seccion  subcategoria -->
+ <section class="content" id="seccionSubcategorias" style="display:none">
+    <button class="btn-primary" id="btnAbrirModalSubcategoria">
+        Agregar Subcategoría +
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>ID Categoría</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbodySubcategorias"></tbody>
+    </table>
+</section>
+ 
+
+<div class="modal" id="modalSubcategoria">
+    <div class="modal-content">
+        <span class="modal-close" id="cerrarModalSubcategoria">&times;</span>
+
+        <h3>Agregar Subcategoría</h3>
+
+        <form id="formSubcategoria">
+            <input type="hidden" id="editIndexSubcategoria">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreSubcategoria" required>
+
+            <label>ID Categoría</label>
+            <input type="number" id="categoria" required>
+
+            <label>Estado</label>
+            <select id="estadoSubcategoria">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+            
+            <label>Imagen</label>
+            <input type="file" id="imagenSubcategoria" accept="image/*">
+
+            <button type="submit" class="btn-primary">
+                Agregar subcategoría
+            </button>
+        </form>
+    </div>
+</div>
+
+<!--seccion  subsubcategoria -->
+ <section class="content" id="seccionSubsubcategorias" style="display:none">
+    <button class="btn-primary" id="btnAbrirModalSubsubcategoria">
+        Agregar Subsubcategoría +
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>ID Subcategoría</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbodySubsubcategorias"></tbody>
+    </table>
+</section>
+
+
+<div class="modal" id="modalSubsubcategoria">
+    <div class="modal-content">
+        <span class="modal-close" id="cerrarModalSubsubcategoria">&times;</span>
+
+        <h3>Agregar Subsubcategoría</h3>
+
+        <form id="formSubsubcategoria">
+            <input type="hidden" id="editIndexSubsubcategoria">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreSubsubcategoria" required>
+
+            <label>ID Subcategoría</label>
+            <input type="number" id="subcategoria" required>
+
+            <label>Estado</label>
+            <select id="estadoSubsubcategoria">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+            
+            <label>Imagen</label>
+            <input type="file" id="imagenSubsubcategoria" accept="image/*">
+
+            <button type="submit" class="btn-primary">
+                Agregar subsubcategoría
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<!-- seccion producto -->
+<section class="content" id="seccionProductos" style="display:none">
+    <button class="btn-primary" id="btnAbrirModalProducto">
+        Agregar Producto +
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Marca</th>
+                <th>SKU</th>
+                <th>Color</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>ID Subsubcategoría</th>
+                <th>ID Usuario</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyProductos"></tbody>
+    </table>
+</section>
+
+<div class="modal" id="modalProducto">
+    <div class="modal-content">
+        <span class="modal-close" id="cerrarModalProducto">&times;</span>
+
+        <h3>Agregar Producto</h3>
+
+        <form id="formProducto">
+            <input type="hidden" id="editIndexProducto">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreProducto" required>
+
+            <label>Marca</label>
+            <input type="text" id="marcaProducto" required>
+
+            <label>SKU</label>
+            <input type="text" id="skuProducto" required>
+
+            <label>Color</label>
+            <input type="text" id="colorProducto" required>
+
+            <label>Descripción</label>
+            <textarea id="descripcionProducto" required></textarea>
+
+            <label>Precio</label>
+            <input type="number" id="precioProducto" step="0.01" required>
+
+            <label>Stock</label>
+            <input type="number" id="stockProducto" required>
+
+            <label>ID Subsubcategoría</label>
+            <input type="number" id="subsubcategoriaProducto" required>
+
+            <label>ID Usuario</label>
+            <input type="number" id="usuarioProducto" required>
+
+            <label>Estado</label>
+            <select id="estadoProducto">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+            
+            <label>Imagen</label>
+            <input type="file" id="imagenProducto" accept="image/*">
+
+            <button type="submit" class="btn-primary">
+                Agregar Producto
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<script src="dashboard.js"></script>
+</body>
+</html>
+
+
+
+
+
