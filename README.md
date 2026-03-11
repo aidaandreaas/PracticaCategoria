@@ -13,20 +13,20 @@
 
 ---
 
-## 📌 Descripción
+## Descripción
 
 **Ecommerce** es una práctica de desarrollo web que simula una tienda en línea funcional. Este proyecto fue desarrollado con el objetivo de aplicar conocimientos de HTML, CSS y JavaScript para construir una interfaz de usuario moderna, intuitiva y responsiva que replica las funcionalidades esenciales de un sitio de comercio electrónico real.
 
 ---
 
-## ✨ Características
+## Características
 
-- 🏠 **Página de inicio** con banner y productos destacados
-- 🛍️ **Catálogo de productos** con tarjetas visuales
-- 🔍 **Búsqueda y filtrado** de productos
-- 🛒 **Carrito de compras** interactivo
-- 📱 **Diseño responsivo** adaptable a móviles y escritorio
-- 🎨 **Interfaz moderna** con estilos personalizados
+-  **Página de inicio** con banner y productos destacados
+-  **Catálogo de productos** con tarjetas visuales
+-  **Búsqueda y filtrado** de productos
+-  **Carrito de compras** interactivo
+-  **Diseño responsivo** adaptable a móviles y escritorio
+-  **Interfaz moderna** con estilos personalizados
 
 ---
 
@@ -35,18 +35,12 @@
 
 ---
 
-## 🚀 Cómo visualizar el proyecto
+## Cómo visualizar el proyecto
 
 1. **Clona o descarga** este repositorio
 2. Abre el archivo `index.html` en tu navegador
 3. ¡Explora la tienda! 🎉
 
-```bash
-git clone https://github.com/aidaandreaas/laboratorioGit.git
-cd ecommerce
-```
-
----
 
 ## Tecnologías utilizadas
 
