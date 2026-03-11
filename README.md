@@ -1,4 +1,4 @@
-# 🛒 eCommerce — Práctica de Desarrollo Web
+# Ecommerce — Práctica de Desarrollo Web
 
 <div align="center">
 
@@ -15,7 +15,7 @@
 
 ## 📌 Descripción
 
-**eCommerce** es una práctica de desarrollo web que simula una tienda en línea funcional. Este proyecto fue desarrollado con el objetivo de aplicar conocimientos de HTML, CSS y JavaScript para construir una interfaz de usuario moderna, intuitiva y responsiva que replica las funcionalidades esenciales de un sitio de comercio electrónico real.
+**Ecommerce** es una práctica de desarrollo web que simula una tienda en línea funcional. Este proyecto fue desarrollado con el objetivo de aplicar conocimientos de HTML, CSS y JavaScript para construir una interfaz de usuario moderna, intuitiva y responsiva que replica las funcionalidades esenciales de un sitio de comercio electrónico real.
 
 ---
 
@@ -32,22 +32,6 @@
 
 ## 🗂️ Estructura del Proyecto
 
-```
-ecommerce/
-│
-├── index.html          # Página principal
-├── productos.html      # Catálogo de productos
-├── carrito.html        # Carrito de compras
-│
-├── css/
-│   └── styles.css      # Estilos principales
-│
-├── js/
-│   └── main.js         # Lógica e interactividad
-│
-└── assets/
-    └── img/            # Imágenes del proyecto
-```
 
 ---
 
@@ -64,7 +48,7 @@ cd ecommerce
 
 ---
 
-## 🧠 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 | Tecnología | Uso |
 |------------|-----|
@@ -75,7 +59,7 @@ cd ecommerce
 
 ---
 
-## 📚 Aprendizajes
+## Aprendizajes
 
 Durante el desarrollo de este proyecto se practicaron los siguientes conceptos:
 
@@ -83,7 +67,6 @@ Durante el desarrollo de este proyecto se practicaron los siguientes conceptos:
 - Diseño responsivo con Flexbox y Grid
 - Manipulación del DOM con JavaScript
 - Control de versiones con Git y ramas
-- Trabajo colaborativo en GitHub
 
 ---
 
@@ -100,12 +83,12 @@ Durante el desarrollo de este proyecto se practicaron los siguientes conceptos:
 
 ---
 
-## 📝 Notas
+## Notas
 
 > Este proyecto fue desarrollado como práctica académica. Cualquier sugerencia o mejora es bienvenida. 😊
 
 ---
 
 <div align="center">
-  Hecho con ❤️ por <strong>Aida Andrea Arredondo Silva</strong>
+  Realizado por <strong>Aida Andrea Arredondo Silva</strong>
 </div>
